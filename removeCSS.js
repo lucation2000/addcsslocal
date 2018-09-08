@@ -7,7 +7,7 @@ window.addEventListener('load', function(){
     function adicionaRemoveCSS()
     {
         //Função para remoção de CSS da página.
-        function removeCSS(dado)
+        function removeCSS(dado,tipo)
         {
 
             var style = document.getElementsByTagName('style');
@@ -21,8 +21,12 @@ window.addEventListener('load', function(){
                 {
                     
                     style[i].innerHTML = style[i].innerHTML.replace(dado,'');
-                    //Adiciona o nome inserido no campo ao localStorange
-                    localStorage.setItem("removidoCSS", (localStorage.getItem("removidoCSS") ? localStorage.getItem("removidoCSS")+"," : '')+dado);
+
+                    if(tipo == 2)
+                    {
+                        //Adiciona o nome inserido no campo ao localStorange
+                        localStorage.setItem("removidoCSS", (localStorage.getItem("removidoCSS") ? localStorage.getItem("removidoCSS")+"," : '')+dado);
+                    }
 
                 }
 
@@ -36,8 +40,12 @@ window.addEventListener('load', function(){
                 {
 
                     link[i].remove();
-                    //Adiciona o nome inserido no campo ao localStorange
-                    localStorage.setItem("removidoCSS", (localStorage.getItem("removidoCSS") ? localStorage.getItem("removidoCSS")+"," : '')+dado);
+
+                    if(tipo == 2)
+                    {
+                        //Adiciona o nome inserido no campo ao localStorange
+                        localStorage.setItem("removidoCSS", (localStorage.getItem("removidoCSS") ? localStorage.getItem("removidoCSS")+"," : '')+dado);
+                    }
 
                 }
 
@@ -46,7 +54,7 @@ window.addEventListener('load', function(){
         }
 
         //Adiciona CSS
-        function adicionaCSS(dado)
+        function adicionaCSS(dado,tipo)
         {
 
             var link = document.createElement('link');
@@ -56,8 +64,11 @@ window.addEventListener('load', function(){
             link.setAttribute('href',dado);
             document.getElementsByTagName('head')[0].appendChild(link);
             
-            //Adiciona o nome inserido no campo ao localStorange
-            localStorage.setItem("adicionadoCSS", (localStorage.getItem("adicionadoCSS") ? localStorage.getItem("adicionadoCSS")+"," : '')+dado);
+            if(tipo == 2)
+            {
+                //Adiciona o nome inserido no campo ao localStorange
+                localStorage.setItem("adicionadoCSS", (localStorage.getItem("adicionadoCSS") ? localStorage.getItem("adicionadoCSS")+"," : '')+dado);
+            }
         }
 
         //Inicia oo BOX para inserir/remover/limpar o localstorange
@@ -75,7 +86,7 @@ window.addEventListener('load', function(){
 
                 for(var i = 0; i < removidos.length; i++)
                 {
-                    removeCSS(removidos[i]);
+                    removeCSS(removidos[i],1);
                 }
 
             }
@@ -87,7 +98,7 @@ window.addEventListener('load', function(){
 
                 for(var i = 0; i < adicionados.length; i++)
                 {
-                    adicionaCSS(adicionados[i]);
+                    adicionaCSS(adicionados[i],1);
                 }
 
             }
@@ -124,7 +135,7 @@ window.addEventListener('load', function(){
             document.getElementById('formAddAdiciona').onclick = function() 
             {
 
-                adicionaCSS(fomAddCSS.arquivoAdd.value);
+                adicionaCSS(fomAddCSS.arquivoAdd.value,2);
                 fomAddCSS.arquivoAdd.value = "";
                 return false;
 
@@ -133,7 +144,7 @@ window.addEventListener('load', function(){
             document.getElementById('formAddRemover').onclick = function() 
             {
 
-                removeCSS(fomAddCSS.arquivoAdd.value);
+                removeCSS(fomAddCSS.arquivoAdd.value,2);
                 fomAddCSS.arquivoAdd.value = "";
                 return false;
 
