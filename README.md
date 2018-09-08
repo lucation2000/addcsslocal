@@ -1,7 +1,8 @@
 # add css local
-Script JS que permite o uso de CSS local em sites para fins de teste. Caso se tenha um site hospedado e quer fazer alterações rápidas ou pequenas edições
+Script JS que permite o uso de CSS local em sites para fins de teste. Caso se tenha um site hospedado e quer fazer alterações rápidas ou pequenas edições. OS links inseridos e removidos são salvos em localStorange no navegador e disponível até que sejam removidos.
 
-English: JS script that allows the use of local CSS in websites for testing purposes. If you have a hosted website and want to make quick changes or minor edits
+English: 
+JS script that allows the use of local CSS in websites for testing purposes. If you have a hosted website and want to make quick changes or minor edits. The inserted and removed links are saved in localStorange in the browser and available until removed. (Used Google Translate, sorry).
 
 
 
